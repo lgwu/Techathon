@@ -1,0 +1,21 @@
+<ivysettings>
+	<property name="telenav.artifact.repository-tar1" value="http://tar1.telenav.com:8080" override="false"/>
+	<property name="telenav.artifact.repository-d-tab" value="http://d-tab-02.telenav.com:8080" override="false"/>
+	<settings defaultResolver="default"/>
+	<resolvers>
+		<url name="telenav-artifact-repository-url-tar1" checkmodified="true">
+			<artifact pattern="${telenav.artifact.repository-tar1}/repository/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+			<artifact pattern="${telenav.artifact.repository-tar1}/repository/[organisation]/[module]/[revision]/[artifact]-[revision]-release.[ext]" />
+		</url>
+		<url name="telenav-artifact-repository-url-tar2" checkmodified="true">
+			<artifact pattern="${telenav.artifact.repository-d-tab}/repository/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+			<artifact pattern="${telenav.artifact.repository-d-tab}/repository/[organisation]/[module]/[revision]/[artifact]-[revision]-release.[ext]" />
+		</url>
+		<chain name="default" dual="true">
+			<resolver ref="telenav-artifact-repository-url-tar1"/>
+			<resolver ref="telenav-artifact-repository-url-tar2"/>
+			 <ibiblio name="public" root="http://hqb-nexus-01.telenav.com:8081/nexus/content" m2compatible="true" checksums="" pattern="groups/public/[organisation]/[module]/[revision]/[artifact]-[revision](-[classifier]).[ext]" />
+			<ibiblio name="fusesrouce" root="http://hqb-nexus-01.telenav.com:8081/nexus/content" m2compatible="true" checksums="" pattern="repositories/fusesource/[organisation]/[module]/[revision]/[artifact]-[revision](-[classifier]).[ext]" />
+		</chain>
+	</resolvers>
+</ivysettings>
