@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+<property>
+  <name>mapred.job.tracker</name>
+  <value>sh-hadoopnn-02.telenav.cn:9001</value>
+  <description>The host and port that the MapReduce job tracker runs
+  at.  If "local", then jobs are run in-process as a single map
+  and reduce task.
+  </description>
+</property>
+
+ <property>
+     <name>mapred.local.dir</name> 
+     <value>/home/tnuser/hadoop/var</value>
+   </property>
+
+<property>
+  <name>mapred.tasktracker.map.tasks.maximum</name>
+  <value>4</value>
+  <description>The maximum number of map tasks that will be run
+  simultaneously by a task tracker.
+  </description>
+</property>
+<property>
+  <name>mapred.tasktracker.reduce.tasks.maximum</name>
+  <value>4</value>
+  <description>The maximum number of reduce tasks that will be run
+  simultaneously by a task tracker.
+  </description>
+</property>
+<property>
+  <name>io.sort.mb</name>
+  <value>200m</value>
+  <final>true</final>
+</property>
+<property>
+  <name>io.sort.factor</name>
+  <value>20</value>
+  <final>true</final>
+</property>
+<property>
+  <name>mapred.child.java.opts</name>
+  <value>-Xmx2048m</value>
+  <final>true</final>
+</property>
+</configuration>
