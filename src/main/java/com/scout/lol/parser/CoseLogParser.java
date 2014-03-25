@@ -83,9 +83,21 @@ public class CoseLogParser extends AbstractParser<CoseLog>
                               "isAndroid"
      ));
 
-    
     public CoseLog parse(String line)
-    {        
+    {
+        try
+        {
+            CoseLog log = this.parseImp(line);
+            return log;
+        }catch (Exception e)
+        {
+            System.err.println(e.getStackTrace());
+            return null;
+        }
+    }
+    
+    public CoseLog parseImp(String line)
+    {                
         CoseLog log = new CoseLog();
 
         log.setTimestamp(this.parseTimestamp(line));
@@ -113,6 +125,7 @@ public class CoseLogParser extends AbstractParser<CoseLog>
         this.parseContext(context, log);
         
         return log;
+        
     }
     
     private String parseTimestamp(String line)
